@@ -1,0 +1,431 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap');
+
+:root {
+    --primary-color: #0D1B2A;
+    --accent-color: #D4A017;
+    --text-gray: #6B7280;
+    --bg-light: #F3F4F6;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-gray);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+/* ==================== HEADER & MENU ==================== */
+header {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.sticky {
+    padding: 10px 0;
+    background-color: rgba(13, 27, 42, 0.95);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    color: var(--white);
+    font-size: 24px;
+}
+.logo span { color: var(--accent-color); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ==================== BUTTONS & EFFECTS ==================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b58812; /* Darker Gold */
+    transform: translateY(-3px);
+}
+
+/* Shine Effect for Buttons */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+/* ==================== LAYOUT SECTIONS ==================== */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), url('https://via.placeholder.com/1920x1080') center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding-top: 80px;
+    max-width: 100%;
+}
+
+.hero h2 {
+    color: var(--white);
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* Core Values (Trụ cột) */
+.core-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.value-card {
+    padding: 30px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.value-card .icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: all 0.3s;
+}
+
+.value-card:hover .icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--accent-color);
+    animation: pulseGlow 1.5s infinite;
+}
+
+.value-card:hover h3, .value-card:hover p {
+    color: var(--primary-color);
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 160, 23, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0); }
+}
+
+/* Grid 4 columns (Services) */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Workflow 6 steps */
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+}
+
+.step-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.step-card:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.step-tag {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--accent-color);
+    color: var(--white);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.step-output {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+    font-weight: 600;
+    color: var(--accent-color);
+    transition: opacity 0.3s;
+}
+
+.step-card:hover .step-output {
+    animation: flashOutput 1s;
+}
+
+@keyframes flashOutput {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* About Us - Personnel Hover */
+.profile-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.profile-card img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    display: block;
+}
+
+.profile-card .info {
+    position: absolute;
+    bottom: -100%;
+    left: 0; width: 100%;
+    background: rgba(13, 27, 42, 0.9);
+    color: var(--white);
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+
+.profile-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.profile-card:hover .info {
+    bottom: 0;
+}
+
+/* Blog Thumbnail Zoom Out */
+.blog-card { overflow: hidden; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.blog-card img {
+    width: 100%; height: 200px; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.blog-card:hover img { transform: scale(0.95); }
+.blog-card:hover h3 { color: var(--accent-color); }
+.blog-content { padding: 20px; }
+
+/* ==================== FOOTER ==================== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 60px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-col h3, .footer-col h4 { color: var(--white); margin-bottom: 20px; }
+.footer-col p { color: #ccc; margin-bottom: 10px; }
+
+.footer-form input, .footer-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+/* ==================== FLOATING BUTTONS ==================== */
+.floating-btns {
+    position: fixed; bottom: 30px; right: 30px;
+    display: flex; flex-direction: column; gap: 15px;
+    z-index: 1000;
+}
+
+.float-btn {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-call { background-color: var(--accent-color); }
+.btn-zalo { background-color: #0068FF; font-weight: bold; font-family: sans-serif;}
+
+.float-btn::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px solid inherit;
+    animation: pulseRing 2s infinite;
+}
+.btn-call::before { border-color: var(--accent-color); }
+.btn-zalo::before { border-color: #0068FF; }
+
+@keyframes pulseRing {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Zalo Tooltip */
+.zalo-tooltip {
+    position: absolute; right: 65px;
+    background: var(--white); color: var(--primary-color);
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: bold;
+    white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: showTooltip 10s infinite;
+}
+.zalo-tooltip::after {
+    content: ''; position: absolute; top: 50%; right: -5px;
+    transform: translateY(-50%);
+    border-width: 5px; border-style: solid;
+    border-color: transparent transparent transparent var(--white);
+}
+
+@keyframes showTooltip {
+    0%, 90% { opacity: 0; transform: translateX(10px); }
+    92%, 98% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(10px); }
+}
+
+/* ==================== SCROLL ANIMATIONS (Fade-in Up) ==================== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
