@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Chúng Tôi | SMARTTAX</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+        :root { --primary-color: #0D1B2A; --accent-color: #D4A017; --text-gray: #6B7280; --bg-light: #F3F4F6; --white: #ffffff; --border-color: #E5E7EB; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--primary-color); line-height: 1.7; background-color: #FAFAFA; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        header { background-color: var(--primary-color); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        header.sticky { padding: 12px 0; background-color: rgba(13, 27, 42, 0.95); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); backdrop-filter: blur(10px); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text h1 { color: var(--white); font-size: 22px; letter-spacing: 1px; line-height: 1; }
+        .logo-text h1 span { color: var(--accent-color); }
+        .logo-text p { color: var(--white); font-size: 8px; letter-spacing: 0.5px; margin-top: 3px; opacity: 0.8; }
+        .nav-links { list-style: none; display: flex; gap: 35px; }
+        .nav-links li a { color: var(--white); text-decoration: none; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; position: relative; padding: 5px 0; transition: color 0.3s ease; }
+        .nav-links li a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--accent-color); bottom: 0; left: 50%; transform: translateX(-50%); transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-links li a:hover { color: var(--accent-color); }
+        .nav-links li a:hover::after, .nav-links li.active a::after { width: 100%; }
+        .nav-links li.active a { color: var(--accent-color); }
+        .btn { display: inline-block; padding: 14px 32px; background-color: var(--accent-color); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2); }
+        .btn:hover { background-color: #bd8e12; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 160, 23, 0.35); }
+        section { padding: 100px 20px; max-width: 1240px; margin: 0 auto; }
+        .section-title-container { text-align: center; margin-bottom: 60px; position: relative; }
+        .section-title { font-size: 32px; text-transform: uppercase; color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 15px; letter-spacing: 0.5px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--accent-color); }
+        .section-subtitle { color: var(--text-gray); font-size: 16px; margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .about-mission-box { text-align: center; max-width: 800px; margin: 0 auto 70px; }
+        .about-mission-box h3 { font-size: 24px; margin-bottom: 15px; }
+        .team-profile-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
+        .profile-card-wrapper { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .profile-card-wrapper img { width: 100%; height: 480px; object-fit: cover; filter: grayscale(100%); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); display: block; }
+        .profile-info-overlay { position: absolute; bottom: -100%; left: 0; width: 100%; background: rgba(13, 27, 42, 0.95); color: var(--white); padding: 30px; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(5px); }
+        .profile-card-wrapper:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .profile-card-wrapper:hover .profile-info-overlay { bottom: 0; }
+        .profile-info-overlay h3 { color: var(--white); font-size: 20px; margin-bottom: 5px; }
+        .profile-info-overlay .designation { color: var(--accent-color); font-weight: 600; font-size: 14px; margin-bottom: 15px; }
+        .profile-info-overlay .bio-text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+        footer { background-color: var(--primary-color); color: var(--white); padding: 80px 20px 30px; border-top: 4px solid var(--accent-color); max-width: 100%; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; }
+        .footer-brand h2 { color: var(--white); font-size: 24px; }
+        .footer-brand h2 span { color: var(--accent-color); }
+        .footer-company-name { font-size: 15px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px; color: var(--white); }
+        .footer-contacts li { margin-bottom: 12px; font-size: 14px; color: rgba(255,255,255,0.7); list-style: none; }
+        .footer-contacts li strong { color: var(--white); }
+        .footer-tagline { margin-top: 30px; font-size: 13px; font-style: italic; color: var(--accent-color); }
+        .footer-right-form h3 { color: var(--white); font-size: 18px; margin-bottom: 20px; }
+        .footer-form-group { display: flex; flex-direction: column; gap: 15px; }
+        .footer-form-group input, .footer-form-group select, .footer-form-group textarea { width: 100%; padding: 12px 16px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; color: var(--white); }
+        .footer-form-group select option { background-color: var(--primary-color); color: var(--white); }
+        .footer-copyright { text-align: center; padding-top: 30px; font-size: 12px; color: rgba(255,255,255,0.4); }
+        .floating-widget-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .floating-action-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; cursor: pointer; }
+        .btn-float-call { background-color: var(--accent-color); }
+        .btn-float-zalo { background-color: #0068FF; }
+        .floating-action-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.6); animation: pulseWave 2s infinite; z-index: -1; }
+        .btn-float-zalo::before { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.6); }
+        @keyframes pulseWave { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+        .zalo-chat-tooltip { position: absolute; right: 70px; background-color: var(--white); color: var(--primary-color); padding: 8px 16px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transform: translateX(10px); transition: all 0.3s ease; }
+        .zalo-chat-tooltip::after { content: ''; position: absolute; top: 50%; right: -6px; transform: translateY(-50%); border-width: 6px; border-style: solid; border-color: transparent transparent transparent var(--white); }
+        .zalo-chat-tooltip.show-bubble { opacity: 1; transform: translateX(0); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { .team-profile-container, .footer-container { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
+</head>
+<body style="padding-top: 90px;">
+
+    <header id="global-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Logo Smarttax" style="height: 45px; width: auto; display: block;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li><a href="dich-vu.html">DỊCH VỤ</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li class="active"><a href="ve-chung-toi.html">VỀ CHÚNG TÔI</a></li>
+                    <li><a href="lien-he.html">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="reveal visible">
+        <div class="about-mission-box">
+            <h1 class="section-title">Hậu Phương Vững Chắc Cho Doanh Nghiệp</h1>
+            <p style="margin-top: 25px; font-size: 16px; color: var(--text-gray); line-height: 1.8;">
+                Sứ mệnh của chúng tôi là giúp các SME sở hữu bộ phận kế toán chuyên nghiệp với chi phí hợp lý nhất. Sự an toàn, minh bạch về số liệu tài chính của bạn chính là thước đo thành công tối thượng của chúng tôi.
+            </p>
+        </div>
+
+        <div class="section-title-container">
+            <h2 class="section-title">Đội Ngũ Chuyên Gia Thực Chiến</h2>
+        </div>
+
+        <div class="team-profile-container">
+            <div class="profile-card-wrapper">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Ms. Hồng Nhung">
+                <div class="profile-info-overlay">
+                    <h3>Ms. Hồng Nhung</h3>
+                    <div class="designation">Trưởng Phòng Nghiệp Vụ</div>
+                    <p class="bio-text">Chuyên gia điều hành hệ thống kế toán doanh nghiệp, chuyên sâu về kiểm soát rủi ro tài chính và tối ưu quy trình báo cáo minh bạch tuyệt đối.</p>
+                </div>
+            </div>
+
+            <div class="profile-card-wrapper">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Ms. Minh Thu">
+                <div class="profile-info-overlay">
+                    <h3>Ms. Minh Thu</h3>
+                    <div class="designation">Chuyên Viên Tư Vấn Thuế</div>
+                    <p class="bio-text">Am hiểu tường tận pháp luật thuế hiện hành, chuyên trách hỗ trợ quyết toán và giải trình số liệu trực tiếp cho các doanh nghiệp SME tại Hà Nội.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="global-footer">
+        <div class="footer-container">
+            <div class="footer-left-info">
+                 <div class="footer-brand">
+    			<img src="images/smarttax.png" alt="Smarttax" style="height: 40px; width: auto; display: block;">
+		</div>
+                <p class="footer-company-name"style="margin-bottom: 12px;">CÔNG TY TNHH DỊCH VỤ KẾ TOÁN CÔNG NGHỆ SMARTTAX</p>
+                <ul class="footer-contacts">
+                    <li><strong>Địa chỉ:</strong> Tầng 5 Tòa nhà Stellar Garden, 35 Lê Văn Thiêm, Thanh Xuân, Hà Nội.</li>
+                    <li><strong>Hotline:</strong> 0936 741 268</li>
+                    <li><strong>Email:</strong> hongnhung@gmail.com</li>
+                </ul>
+                <p class="footer-tagline">Giải pháp kế toán - Minh bạch tài chính - Đồng hành phát triển</p>
+            </div>
+            <div class="footer-right-form">
+                <h3>NHẬN TƯ VẤN & BÁO GIÁ TÙY CHỈNH</h3>
+                <form class="footer-form-group" action="#" method="POST">
+                    <input type="text" placeholder="Họ và tên của bạn" required>
+                    <input type="tel" placeholder="Số điện thoại liên hệ" required>
+                    <select required>
+                        <option value="" disabled selected>Dịch vụ bạn quan tâm</option>
+                        <option value="ke-toan-tron-goi">Kế toán trọn gói (SME & Hộ kinh doanh)</option>
+                        <option value="dich-vu-phap-ly">Dịch vụ Pháp lý Doanh nghiệp</option>
+                        <option value="noi-bo-hanh-chinh">Dịch vụ Nội bộ & Hành chính</option>
+                        <option value="phan-mem-ho-tro">Phần mềm hỗ trợ</option>
+                    </select>
+                    <button type="submit" class="btn">Gửi Yêu Cầu</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-copyright"><p>© 2026 SMARTTAX. All rights reserved.</p></div>
+    </footer>
+
+    <div class="floating-widget-container">
+        <a href="tel:0936741268" class="floating-action-btn btn-float-call" title="Gọi Ngay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="https://zalo.me/0936741268" target="_blank" class="floating-action-btn btn-float-zalo" title="Chat Zalo"><span style="font-family: sans-serif; font-weight: 900; font-size: 13px; letter-spacing: -0.5px;">Zalo</span><div class="zalo-chat-tooltip" id="zalo-tooltip">Smarttax hỗ trợ bạn ngay!</div></a>
+    </div>
+
+    <script>
+        function switchServiceTab(event, tabId) {
+            document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.tab-trigger-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('global-header');
+            if(window.scrollY > 50) header.classList.add('sticky'); else header.classList.remove('sticky');
+        });
+        const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+        const zaloTooltip = document.getElementById('zalo-tooltip');
+        if(zaloTooltip) { setInterval(() => { zaloTooltip.classList.add('show-bubble'); setTimeout(() => zaloTooltip.classList.remove('show-bubble'), 3000); }, 10000); }
+    </script>
+</body>
+</html>
