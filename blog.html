@@ -205,18 +205,21 @@
             </div>
             <div class="footer-right-form">
                 <h3>NHẬN TƯ VẤN & BÁO GIÁ TÙY CHỈNH</h3>
-                <form class="footer-form-group" action="#" method="POST">
-                    <input type="text" placeholder="Họ và tên của bạn" required>
-                    <input type="tel" placeholder="Số điện thoại liên hệ" required>
-                    <select required>
-                        <option value="" disabled selected>Dịch vụ bạn quan tâm</option>
-                        <option value="ke-toan-tron-goi">Kế toán trọn gói (SME & Hộ kinh doanh)</option>
-                        <option value="dich-vu-phap-ly">Dịch vụ Pháp lý Doanh nghiệp</option>
-                        <option value="noi-bo-hanh-chinh">Dịch vụ Nội bộ & Hành chính</option>
-                        <option value="phan-mem-ho-tro">Phần mềm hỗ trợ (Hóa đơn, chữ ký số...)</option>
-                    </select>
-                    <button type="submit" class="btn">GỬI YÊU CẦU</button>
-                </form>
+                <form id="form-nhan-tu-van" class="footer-form-group">
+    <input type="text" name="ho_ten" placeholder="Họ và tên của bạn" required>
+    
+    <input type="tel" name="so_dien_thoai" placeholder="Số điện thoại liên hệ" required>
+    
+    <select name="dich_vu" required>
+        <option value="" disabled selected>Dịch vụ bạn quan tâm</option>
+        <option value="Kế toán trọn gói">Kế toán trọn gói (SME & Hộ kinh doanh)</option>
+        <option value="Pháp lý doanh nghiệp">Dịch vụ Pháp lý Doanh nghiệp</option>
+        <option value="Nội bộ & Hành chính">Dịch vụ Nội bộ & Hành chính</option>
+        <option value="Phần mềm hỗ trợ">Phần mềm hỗ trợ (Hóa đơn, chữ ký số...)</option>
+    </select>
+    
+    <button type="submit" class="btn" style="width: 100%; text-align: center;">GỬI YÊU CẦU</button>
+</form>
             </div>
         </div>
         <div class="footer-copyright">

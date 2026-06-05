@@ -14,41 +14,50 @@
         header.sticky { padding: 12px 0; background-color: rgba(13, 27, 42, 0.95); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); backdrop-filter: blur(10px); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-text h1 { color: var(--white); font-size: 22px; letter-spacing: 1px; line-height: 1; }
-        .logo-text h1 span { color: var(--accent-color); }
-        .logo-text p { color: var(--white); font-size: 8px; letter-spacing: 0.5px; margin-top: 3px; opacity: 0.8; }
         .nav-links { list-style: none; display: flex; gap: 35px; }
         .nav-links li a { color: var(--white); text-decoration: none; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; position: relative; padding: 5px 0; transition: color 0.3s ease; }
         .nav-links li a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--accent-color); bottom: 0; left: 50%; transform: translateX(-50%); transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .nav-links li a:hover { color: var(--accent-color); }
         .nav-links li a:hover::after, .nav-links li.active a::after { width: 100%; }
         .nav-links li.active a { color: var(--accent-color); }
-        .btn { display: inline-block; padding: 14px 32px; background-color: var(--accent-color); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2); }
+        
+        /* ĐÃ THÊM WHITE-SPACE: NOWRAP ĐỂ NÚT KHÔNG BAO GIỜ BỊ RỚT CHỮ */
+        .btn { display: inline-block; padding: 14px 32px; background-color: var(--accent-color); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2); white-space: nowrap; }
         .btn:hover { background-color: #bd8e12; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 160, 23, 0.35); }
+        
         section { padding: 100px 20px; max-width: 1240px; margin: 0 auto; }
         .section-title-container { text-align: center; margin-bottom: 60px; position: relative; }
         .section-title { font-size: 32px; text-transform: uppercase; color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 15px; letter-spacing: 0.5px; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--accent-color); }
         .section-subtitle { color: var(--text-gray); font-size: 16px; margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
         .services-tab-header { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
         .tab-trigger-btn { padding: 14px 28px; background-color: var(--white); border: 1px solid var(--border-color); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: all 0.3s ease; }
         .tab-trigger-btn.active, .tab-trigger-btn:hover { background-color: var(--accent-color); color: var(--white); border-color: var(--accent-color); }
+        
         .tab-content-panel { display: none; background: var(--white); border: 1px solid var(--border-color); padding: 50px; border-radius: 8px; box-shadow: 0 4px 25px rgba(0,0,0,0.03); }
         .tab-content-panel.active { display: block; animation: fadeInTab 0.5s ease; }
         @keyframes fadeInTab { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
         .service-detail-block h3 { font-size: 26px; margin-bottom: 30px; border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; }
-        .service-info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .service-info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 30px; }
         .info-box-card { background: var(--bg-light); padding: 30px; border-radius: 6px; }
         .info-box-card h4 { font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .info-box-card.solution-card { background: rgba(13, 27, 42, 0.03); border-left: 4px solid var(--primary-color); }
+        
+        .service-features { margin-bottom: 40px; padding: 0 10px; }
+        .service-features h4 { font-size: 16px; margin-bottom: 20px; color: var(--primary-color); text-transform: uppercase; }
+        .service-features ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .service-features li { position: relative; padding-left: 28px; font-size: 15px; color: #4B5563; }
+        .service-features li::before { content: '✔'; position: absolute; left: 0; top: 0; color: var(--accent-color); font-weight: bold; font-size: 16px; }
+
         .price-custom-box { background: linear-gradient(135deg, var(--primary-color), #1E293B); color: var(--white); padding: 35px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
         .price-custom-box h4 { color: var(--white); font-size: 20px; margin-bottom: 5px; }
         .price-custom-box p { color: rgba(255,255,255,0.7); margin: 0; }
+        
         footer { background-color: var(--primary-color); color: var(--white); padding: 80px 20px 30px; border-top: 4px solid var(--accent-color); max-width: 100%; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; }
-        .footer-brand h2 { color: var(--white); font-size: 24px; }
-        .footer-brand h2 span { color: var(--accent-color); }
         .footer-contacts li { margin-bottom: 12px; font-size: 14px; color: rgba(255,255,255,0.7); list-style: none; }
         .footer-contacts li strong { color: var(--white); }
         .footer-tagline { margin-top: 30px; font-size: 13px; font-style: italic; color: var(--accent-color); }
@@ -57,6 +66,7 @@
         .footer-form-group input, .footer-form-group select, .footer-form-group textarea { width: 100%; padding: 12px 16px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; color: var(--white); }
         .footer-form-group select option { background-color: var(--primary-color); color: var(--white); }
         .footer-copyright { text-align: center; padding-top: 30px; font-size: 12px; color: rgba(255,255,255,0.4); }
+        
         .floating-widget-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
         .floating-action-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; cursor: pointer; }
         .btn-float-call { background-color: var(--accent-color); }
@@ -67,9 +77,14 @@
         .zalo-chat-tooltip { position: absolute; right: 70px; background-color: var(--white); color: var(--primary-color); padding: 8px 16px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transform: translateX(10px); transition: all 0.3s ease; }
         .zalo-chat-tooltip::after { content: ''; position: absolute; top: 50%; right: -6px; transform: translateY(-50%); border-width: 6px; border-style: solid; border-color: transparent transparent transparent var(--white); }
         .zalo-chat-tooltip.show-bubble { opacity: 1; transform: translateX(0); }
-        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        @media (max-width: 768px) { .service-info-row, .footer-container { grid-template-columns: 1fr; } .nav-links { display: none; } .price-custom-box { flex-direction: column; gap: 20px; text-align: center; } }
+        
+        @media (max-width: 768px) { 
+            .service-info-row, .footer-container, .service-features ul { grid-template-columns: 1fr; } 
+            .nav-links { display: none; } 
+            .price-custom-box { flex-direction: column; gap: 20px; text-align: center; } 
+        }
     </style>
 </head>
 <body style="padding-top: 90px;">
@@ -77,7 +92,7 @@
     <header id="global-header">
         <div class="nav-container">
             <a href="index.html" class="logo">
-    <img src="images/logo.png" alt="Logo Smarttax" style="height: 45px; width: auto; display: block;">
+                <img src="images/logo.png" alt="Logo Smarttax" style="height: 45px; width: auto; display: block;">
             </a>
             <nav>
                 <ul class="nav-links">
@@ -94,6 +109,7 @@
     <section class="reveal visible">
         <div class="section-title-container">
             <h1 class="section-title">Hệ Thống Dịch Vụ Chuyên Sâu</h1>
+            <p class="section-subtitle">Đồng hành cùng sự phát triển bền vững của doanh nghiệp thông qua các giải pháp tài chính, pháp lý và công nghệ toàn diện.</p>
         </div>
 
         <div class="services-tab-header">
@@ -103,74 +119,151 @@
             <button class="tab-trigger-btn" onclick="switchServiceTab(event, 'tab-phanmem')">Phần Mềm Hỗ Trợ</button>
         </div>
 
+        <!-- TAB 1: KẾ TOÁN TRỌN GÓI -->
         <div id="tab-ketoan" class="tab-content-panel active">
             <div class="service-detail-block">
                 <h3>Dịch vụ Kế toán & Thuế trọn gói</h3>
                 <div class="service-info-row">
                     <div class="info-box-card">
                         <h4>Thực Trạng Doanh Nghiệp</h4>
-                        <p>SME và hộ kinh doanh thường thiếu nhân sự am hiểu luật sâu sắc, dẫn đến sai sót chứng từ và nguy cơ bị phạt hành chính nặng nề.</p>
+                        <p>SME và hộ kinh doanh thường thiếu nhân sự am hiểu luật sâu sắc, dẫn đến sai sót chứng từ, nguy cơ bị truy thu thuế và phạt hành chính nặng nề khi quyết toán.</p>
                     </div>
                     <div class="info-box-card solution-card">
                         <h4>Cách Smarttax Giải Quyết</h4>
-                        <p>Thay thế bộ phận kế toán thực thụ: Phân loại hạch toán chuẩn chỉnh, lập tờ khai thuế, tối ưu chi phí và trực tiếp đứng ra giải trình số liệu.</p>
+                        <p>Đóng vai trò là một phòng kế toán thuê ngoài: Trực tiếp phân loại hạch toán chuẩn chỉnh, lập tờ khai thuế, tối ưu chi phí và trực tiếp đại diện giải trình số liệu.</p>
                     </div>
                 </div>
+                
+                <div class="service-features">
+                    <h4>Chi tiết hạng mục công việc:</h4>
+                    <ul>
+                        <li>Kiểm tra, phân loại và tư vấn tính hợp lệ của hóa đơn, chứng từ.</li>
+                        <li>Lập và nộp báo cáo thuế (GTGT, TNCN, TNDN) định kỳ đúng hạn.</li>
+                        <li>Ghi chép sổ sách kế toán chuyên nghiệp trên phần mềm nội bộ.</li>
+                        <li>Lập Báo cáo tài chính và Quyết toán thuế cuối năm.</li>
+                        <li>Cảnh báo rủi ro pháp lý và tư vấn phương án tối ưu số thuế.</li>
+                        <li>Trực tiếp làm việc và giải trình với cơ quan Thuế khi có thanh tra.</li>
+                    </ul>
+                </div>
+
                 <div class="price-custom-box">
-                    <div><h4>Báo Giá Tùy Chỉnh Theo Dữ Liệu</h4><p>Tính toán khoa học dựa trên số lượng hóa đơn phát sinh thực tế.</p></div>
+                    <div>
+                        <h4>Báo Giá Tùy Chỉnh Theo Dữ Liệu</h4>
+                        <p>Chi phí minh bạch, tính toán khoa học dựa trên số lượng hóa đơn phát sinh thực tế của doanh nghiệp.</p>
+                    </div>
                     <a href="#global-footer" class="btn">Liên Hệ Nhận Báo Giá</a>
                 </div>
             </div>
         </div>
 
+        <!-- TAB 2: PHÁP LÝ DOANH NGHIỆP -->
         <div id="tab-phaply" class="tab-content-panel">
             <div class="service-detail-block">
                 <h3>Dịch Vụ Pháp Lý Doanh Nghiệp</h3>
                 <div class="service-info-row">
                     <div class="info-box-card">
                         <h4>Thực Trạng Doanh Nghiệp</h4>
-                        <p>Thủ tục thành lập mới, thay đổi đăng ký kinh doanh rườm rà làm tốn thời gian quý báu của chủ doanh nghiệp.</p>
+                        <p>Thủ tục hành chính rườm rà, hồ sơ bị trả về nhiều lần do sai sót biểu mẫu làm tốn thời gian, lỡ mất cơ hội kinh doanh quý báu của chủ doanh nghiệp.</p>
                     </div>
                     <div class="info-box-card solution-card">
                         <h4>Cách Smarttax Giải Quyết</h4>
-                        <p>Xử lý gọn gàng hồ sơ pháp lý trong 24 giờ, đại diện nộp và nhận kết quả giấy phép, con dấu bàn giao tận tay.</p>
+                        <p>Xử lý trọn gói hồ sơ pháp lý nhanh chóng, chính xác. Đại diện nộp, nhận kết quả và bàn giao Giấy phép kinh doanh, con dấu tận nơi cho khách hàng.</p>
                     </div>
                 </div>
+                
+                <div class="service-features">
+                    <h4>Các dịch vụ pháp lý hỗ trợ:</h4>
+                    <ul>
+                        <li>Thành lập Công ty (TNHH, Cổ phần, Doanh nghiệp tư nhân).</li>
+                        <li>Thành lập Hộ kinh doanh cá thể, chi nhánh, văn phòng đại diện.</li>
+                        <li>Thay đổi Đăng ký kinh doanh (Tên, Địa chỉ, Vốn điều lệ, Ngành nghề).</li>
+                        <li>Thủ tục sáp nhập, chia tách, tạm ngừng hoặc giải thể doanh nghiệp.</li>
+                        <li>Đăng ký bảo hộ thương hiệu, nhãn hiệu, logo và bản quyền tác giả.</li>
+                        <li>Xin cấp các loại giấy phép con (VSATTP, PCCC, An ninh trật tự...).</li>
+                    </ul>
+                </div>
+
                 <div class="price-custom-box">
-                    <div><h4>Giá Trọn Gói Cam Kết</h4><p>Báo giá một lần duy nhất, cam kết không phát sinh ngầm.</p></div>
+                    <div>
+                        <h4>Giá Trọn Gói Cam Kết</h4>
+                        <p>Báo giá minh bạch một lần duy nhất, cam kết không phát sinh bất kỳ chi phí ngầm nào.</p>
+                    </div>
                     <a href="#global-footer" class="btn">Liên Hệ Nhận Báo Giá</a>
                 </div>
             </div>
         </div>
         
+        <!-- TAB 3: KẾ TOÁN NỘI BỘ -->
         <div id="tab-noibo" class="tab-content-panel">
             <div class="service-detail-block">
-                <h3>Dịch Vụ Kế Toán Nội Bộ</h3>
+                <h3>Dịch Vụ Kế Toán Nội Bộ & Hành Chính</h3>
                 <div class="service-info-row">
                     <div class="info-box-card">
                         <h4>Thực Trạng Doanh Nghiệp</h4>
-                        <p>Dòng tiền hoạt động lỏng lẻo, công nợ tồn đọng thu hồi chậm và dữ liệu kho không cập nhật chính xác.</p>
+                        <p>Dòng tiền hoạt động lỏng lẻo, thất thoát hàng hóa, công nợ tồn đọng thu hồi chậm và ban giám đốc không nắm được tình hình lỗ/lãi thực tế từng ngày.</p>
                     </div>
                     <div class="info-box-card solution-card">
                         <h4>Cách Smarttax Giải Quyết</h4>
-                        <p>Xây dựng hệ thống theo dõi dòng tiền, kiểm soát công nợ, báo cáo quản trị định kỳ và bảo mật tối đa.</p>
+                        <p>Xây dựng hệ thống theo dõi dòng tiền chuyên nghiệp, kiểm soát công nợ, cung cấp báo cáo quản trị định kỳ giúp CEO ra quyết định điều hành chính xác.</p>
                     </div>
+                </div>
+                
+                <div class="service-features">
+                    <h4>Chi tiết hạng mục công việc:</h4>
+                    <ul>
+                        <li>Thiết lập và quản lý hệ thống sổ sách thu - chi nội bộ minh bạch.</li>
+                        <li>Theo dõi, đối chiếu và đôn đốc thu hồi công nợ (phải thu/phải trả).</li>
+                        <li>Quản lý xuất - nhập - tồn kho nguyên vật liệu, kiểm kê định kỳ.</li>
+                        <li>Hỗ trợ chấm công, tính lương, thưởng và thực hiện trích nộp BHXH.</li>
+                        <li>Cung cấp Báo cáo quản trị (lãi/lỗ thực tế, lưu chuyển tiền tệ) hàng tháng.</li>
+                        <li>Soạn thảo hợp đồng, quản lý hồ sơ nhân sự, tài liệu hành chính nội bộ.</li>
+                    </ul>
+                </div>
+
+                <div class="price-custom-box">
+                    <div>
+                        <h4>Giải Pháp Quản Trị Tối Ưu Chi Phí</h4>
+                        <p>Chi phí linh hoạt theo quy mô, tiết kiệm đến 60% so với tự xây dựng và duy trì bộ máy nhân sự nội bộ.</p>
+                    </div>
+                    <!-- NÚT KHÔNG CÒN BỊ RỚT DÒNG NỮA -->
+                    <a href="#global-footer" class="btn">Đăng Ký Tư Vấn Ngay</a>
                 </div>
             </div>
         </div>
 
+        <!-- TAB 4: PHẦN MỀM HỖ TRỢ -->
         <div id="tab-phanmem" class="tab-content-panel">
             <div class="service-detail-block">
-                <h3>Giải Pháp Phần Mềm Hỗ Trợ</h3>
+                <h3>Giải Pháp Cung Cấp Phần Mềm Hỗ Trợ</h3>
                 <div class="service-info-row">
                     <div class="info-box-card">
                         <h4>Thực Trạng Doanh Nghiệp</h4>
-                        <p>Lúng túng khi tích hợp các công cụ bắt buộc như hóa đơn điện tử, chữ ký số hay khai báo BHXH.</p>
+                        <p>Lúng túng khi tích hợp các công cụ bắt buộc như hóa đơn điện tử, chữ ký số. Thường gặp lỗi kỹ thuật trong kỳ báo cáo nhưng không được hỗ trợ kịp thời.</p>
                     </div>
                     <div class="info-box-card solution-card">
                         <h4>Cách Smarttax Giải Quyết</h4>
-                        <p>Cung cấp chính hãng phần mềm hóa đơn điện tử, chữ ký số USB token, hỗ trợ cài đặt cấu hình từ xa và bàn giao 1-1.</p>
+                        <p>Cung cấp hệ sinh thái phần mềm chính hãng từ các nhà mạng lớn. Trực tiếp hỗ trợ cài đặt, cấu hình hệ thống từ xa và khắc phục sự cố kỹ thuật 24/7.</p>
                     </div>
+                </div>
+                
+                <div class="service-features">
+                    <h4>Các dịch vụ & phần mềm cung cấp:</h4>
+                    <ul>
+                        <li><strong>Chữ ký số điện tử (USB Token / SmartCA):</strong> Viettel, VNPT, FPT, BKAV...</li>
+                        <li><strong>Hóa đơn điện tử:</strong> Khởi tạo nhanh, mẫu mã chuẩn, tự động truyền dữ liệu cơ quan Thuế.</li>
+                        <li><strong>Phần mềm Kế toán:</strong> Đại lý ủy quyền MISA, Fast, phần mềm quản trị ERP cho SME.</li>
+                        <li><strong>Phần mềm kê khai BHXH:</strong> VmBHXH, EFY, phần mềm điện toán đám mây.</li>
+                        <li>Hỗ trợ đăng ký tài khoản Thuế điện tử (eTax), Hải quan điện tử.</li>
+                        <li>Bảo trì hệ thống, support kỹ thuật 1-1 trọn đời vòng đời phần mềm.</li>
+                    </ul>
+                </div>
+
+                <div class="price-custom-box">
+                    <div>
+                        <h4>Chiết Khấu Đại Lý Tốt Nhất Trực Tiếp</h4>
+                        <p>Cam kết giá cạnh tranh nhất thị trường cùng dịch vụ hỗ trợ kỹ thuật tận tâm, xử lý sự cố ngay lập tức.</p>
+                    </div>
+                    <a href="#global-footer" class="btn">Nhận Báo Giá Ưu Đãi</a>
                 </div>
             </div>
         </div>
@@ -180,9 +273,9 @@
         <div class="footer-container">
             <div class="footer-left-info">
                 <div class="footer-brand">
-    			<img src="images/smarttax.png" alt="Smarttax" style="height: 40px; width: auto; display: block;">
-		</div>
-                <p class="footer-company-name"style="margin-bottom: 12px;">CÔNG TY TNHH DỊCH VỤ KẾ TOÁN CÔNG NGHỆ SMARTTAX</p>
+                    <img src="images/smarttax.png" alt="Smarttax" style="height: 40px; width: auto; display: block;">
+                </div>
+                <p class="footer-company-name" style="margin-bottom: 12px;">CÔNG TY TNHH DỊCH VỤ KẾ TOÁN CÔNG NGHỆ SMARTTAX</p>
                 <ul class="footer-contacts">
                     <li><strong>Địa chỉ:</strong> Tầng 5 Tòa nhà Stellar Garden, 35 Lê Văn Thiêm, Thanh Xuân, Hà Nội.</li>
                     <li><strong>Hotline:</strong> 0936 741 268</li>
@@ -192,18 +285,21 @@
             </div>
             <div class="footer-right-form">
                 <h3>NHẬN TƯ VẤN & BÁO GIÁ TÙY CHỈNH</h3>
-                <form class="footer-form-group" action="#" method="POST">
-                    <input type="text" placeholder="Họ và tên của bạn" required>
-                    <input type="tel" placeholder="Số điện thoại liên hệ" required>
-                    <select required>
-                        <option value="" disabled selected>Dịch vụ bạn quan tâm</option>
-                        <option value="ke-toan-tron-goi">Kế toán trọn gói (SME & Hộ kinh doanh)</option>
-                        <option value="dich-vu-phap-ly">Dịch vụ Pháp lý Doanh nghiệp</option>
-                        <option value="noi-bo-hanh-chinh">Dịch vụ Nội bộ & Hành chính</option>
-                        <option value="phan-mem-ho-tro">Phần mềm hỗ trợ</option>
-                    </select>
-                    <button type="submit" class="btn">Gửi Yêu Cầu</button>
-                </form>
+                <form id="form-nhan-tu-van" class="footer-form-group">
+    <input type="text" name="ho_ten" placeholder="Họ và tên của bạn" required>
+    
+    <input type="tel" name="so_dien_thoai" placeholder="Số điện thoại liên hệ" required>
+    
+    <select name="dich_vu" required>
+        <option value="" disabled selected>Dịch vụ bạn quan tâm</option>
+        <option value="Kế toán trọn gói">Kế toán trọn gói (SME & Hộ kinh doanh)</option>
+        <option value="Pháp lý doanh nghiệp">Dịch vụ Pháp lý Doanh nghiệp</option>
+        <option value="Nội bộ & Hành chính">Dịch vụ Nội bộ & Hành chính</option>
+        <option value="Phần mềm hỗ trợ">Phần mềm hỗ trợ (Hóa đơn, chữ ký số...)</option>
+    </select>
+    
+    <button type="submit" class="btn" style="width: 100%; text-align: center;">GỬI YÊU CẦU</button>
+</form>
             </div>
         </div>
         <div class="footer-copyright"><p>© 2026 SMARTTAX. All rights reserved.</p></div>
@@ -212,8 +308,9 @@
     <div class="floating-widget-container">
         <a href="tel:0936741268" class="floating-action-btn btn-float-call" title="Gọi Ngay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
         <a href="https://zalo.me/0936741268" target="_blank" class="floating-action-btn" style="background: transparent; box-shadow: none; padding: 0;" title="Chat Zalo">
-      <img src="images/logo-zalo.png" alt="Chat Zalo" style="width: 50px; height: auto; display: block; border-radius: 30%;">
-    <div class="zalo-chat-tooltip" id="zalo-tooltip">Smarttax hỗ trợ bạn ngay!</div></a>
+            <img src="images/logo-zalo.png" alt="Chat Zalo" style="width: 50px; height: auto; display: block; border-radius: 30%;">
+            <div class="zalo-chat-tooltip" id="zalo-tooltip">Smarttax hỗ trợ bạn ngay!</div>
+        </a>
     </div>
 
     <script>
