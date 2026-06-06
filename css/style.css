@@ -428,4 +428,38 @@ footer {
 .fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
+/* Container chứa 2 nút */
+.hero-buttons {
+    display: flex;
+    gap: 1000px; /* Tăng từ 15px lên 25px để tạo khoảng cách thoải mái */
+    margin-top: 30px;
+    align-items: center;
+}
+
+/* Nút mới (Dạng viền) - Thêm transition để hiệu ứng mượt hơn */
+.btn-outline {
+    background-color: transparent !important;
+    border: 2px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px); /* Thêm hiệu ứng đẩy nhẹ khi hover giống nút chính */
+}
+
+/* Responsive: Trên điện thoại, xếp dọc và giữ khoảng cách hài hòa */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px; /* Khoảng cách khi xếp dọc trên mobile */
+        width: 100%;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
